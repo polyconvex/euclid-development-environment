@@ -417,7 +417,7 @@ build() {
   fi
 
   echo "Cleaning up dangling docker images"
-  echo "Finished"
+  docker image prune -f
   exit
 }
 
@@ -550,7 +550,6 @@ stop() {
     cd scripts/
   fi
   cd ..
-  chmod -R +w source
 
   echo "Starting stopping containers ..."
 
@@ -590,7 +589,6 @@ destroy() {
 
   source ../.env
   cd ..
-  chmod -R +w source
 
   echo "Starting destroying containers ..."
 
@@ -625,7 +623,7 @@ destroy() {
   destroy_container ubuntu-with-java-and-sbt
 
   docker network rm custom-network
-  docker rmi $(docker images -f "dangling=true" -q) &>/dev/null
+  docker image prune -f
 }
 
 # @cmd Check the status of the containers
