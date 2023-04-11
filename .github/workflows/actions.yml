@@ -1,0 +1,14 @@
+on: push
+
+jobs:
+  ubuntu-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: some/secret-store@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: generate secret
+        shell: bash
+        run: |
+          echo $GITHUB_TOKEN TTT
