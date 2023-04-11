@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-        env: # Or as an environment variable
-          super_secret_2: ${{ secrets.SuperSecret }}
+      - uses: actions/checkout@v3
+      - name: Run steps
+        env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          echo $GITHUB_TOKEN $super_secret $super_secret_2 TTT
+          echo $GITHUB_TOKEN TTT
