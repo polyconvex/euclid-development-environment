@@ -417,8 +417,8 @@ build() {
   fi
 
   echo "Cleaning up dangling docker images"
-  docker rmi $(docker images -f "dangling=true" -q) &>/dev/null
-  exit
+  echo "Finished"
+  exit 0
 }
 
 # @cmd Start containers
