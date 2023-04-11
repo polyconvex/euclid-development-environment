@@ -28,6 +28,6 @@ jobs:
           cs install giter8
           echo "Gitter Installed"
           
-          ls
+          scripts/hydra install
           
-          echo $GITHUB_TOKEN TTT
+          scripts/hydra build
