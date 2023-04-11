@@ -4,10 +4,8 @@ jobs:
   ubuntu-tests:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
       - uses: actions/checkout@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - shell: bash
       - name: generate secret
         with: # Set the secret as an input
           super_secret: ${{ secrets.SuperSecret }}
