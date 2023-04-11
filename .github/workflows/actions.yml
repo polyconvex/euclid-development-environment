@@ -4,13 +4,11 @@ jobs:
   ubuntu-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: generate secret
-        shell: bash
-        with: # Set the secret as an input
-          super_secret: ${{ secrets.SuperSecret }}
+      - shell: bash
         env: # Or as an environment variable
           super_secret_2: ${{ secrets.SuperSecret }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.SuperSecret }}
         run: |
           echo $GITHUB_TOKEN $super_secret $super_secret_2 TTT
