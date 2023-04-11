@@ -1,6 +1,7 @@
 on: push
 
 jobs:
+
   mac-os-tests:
     runs-on: macos-latest
     steps:
@@ -16,6 +17,7 @@ jobs:
       - name: Run steps
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: 1
+          HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
         shell: bash
         run: |
           echo "Installing CARGO"
