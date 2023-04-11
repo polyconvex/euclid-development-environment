@@ -8,7 +8,5 @@ jobs:
         env: # Or as an environment variable
           super_secret_2: ${{ secrets.SuperSecret }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with: # Set the secret as an input
-          super_secret: ${{ secrets.SuperSecret }}
         run: |
           echo $GITHUB_TOKEN $super_secret $super_secret_2 TTT
