@@ -1,7 +1,6 @@
 on: push
 
 jobs:
-
   mac-os-tests:
     runs-on: macos-latest
     steps:
@@ -13,6 +12,8 @@ jobs:
       - name: Setup Docker on macOS
         uses: douglascamata/setup-docker-macos-action@v1-alpha
       - name: Run steps
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
         shell: bash
         run: |
           echo "Installing CARGO"
