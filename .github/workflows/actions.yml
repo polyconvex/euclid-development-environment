@@ -4,8 +4,8 @@ jobs:
   ubuntu-tests:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
       - uses: actions/checkout@v3
+      - shell: bash
       - name: Run steps
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
