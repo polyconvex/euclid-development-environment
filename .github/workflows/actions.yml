@@ -10,6 +10,8 @@ jobs:
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
       - name: Setup Docker on macOS
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
         uses: douglascamata/setup-docker-macos-action@v1-alpha
       - name: Run steps
         env:
