@@ -14,8 +14,11 @@ jobs:
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: 1
           HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
+        uses: docker-practice/actions-setup-docker@master
+        timeout-minutes: 12
         run: |
-          brew install docker docker-machine docker-compose
+             set -x
+             docker version
       - name: Run steps
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: 1
