@@ -10,4 +10,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
+          echo "Installing CARGO"
+          curl https://sh.rustup.rs -sSf | sh
+          echo "Cargo Installed"
+          
+          echo "Installing ARGC"
+          cargo install argc
+          echo "ARGC Installed"
+          
+          echo "Installing Scala"
+          curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup
+          echo "Scala Installed"
+          
+          echo "Installing Giter"
+          cs install giter8
+          echo "Gitter Installed"
+          
           echo $GITHUB_TOKEN TTT
