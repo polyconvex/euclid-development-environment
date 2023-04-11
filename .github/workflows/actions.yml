@@ -12,16 +12,9 @@ jobs:
       - name: Run steps
         shell: bash
         run: |
-          echo "Installing CARGO"
-          curl https://sh.rustup.rs -sSf | sh -s -- -y 
-          echo "Cargo Installed"
-
-          echo "Installing ARGC"
-          cargo install argc
-          echo "ARGC Installed"
 
           echo "Installing Scala"
-          brew install coursier/formulas/coursier && cs setup
+          brew install coursier/formulas/coursier -f && cs setup
           echo "Scala Installed"
 
           source ~/.profile
