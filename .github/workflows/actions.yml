@@ -16,7 +16,7 @@ jobs:
           curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y
           echo "Scala Installed"
           
-          export PATH=$PATH:/home/username/.local/share/coursier/bin
+          export PATH=~/.local/share/coursier/bin
           
           echo "Installing Giter"
           cs install giter8
