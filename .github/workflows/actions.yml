@@ -5,10 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Create env file
+        shell: bash
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
       - name: Run steps
         shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
