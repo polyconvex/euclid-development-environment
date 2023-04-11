@@ -13,8 +13,9 @@ jobs:
         shell: bash
         run: |
 
+
           echo "Installing Scala"
-          brew install coursier/formulas/coursier -f && cs setup
+          brew install coursier/formulas/coursier -f && cs setup -y
           echo "Scala Installed"
 
           source ~/.profile
