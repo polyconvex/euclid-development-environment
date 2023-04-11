@@ -418,7 +418,7 @@ build() {
 
   echo "Cleaning up dangling docker images"
   echo "Finished"
-  exit 0
+  exit
 }
 
 # @cmd Start containers
