@@ -3,7 +3,7 @@ on: push
 jobs:
 
   windows-tests:
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
       - name: Create env file
