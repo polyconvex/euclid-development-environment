@@ -6,8 +6,8 @@ jobs:
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
-      - name: Install scala
-        uses: olafurpg/setup-scala@v11
+      - name: coursier-setup-action
+        uses: coursier/setup-action@v1.3.0
       - name: Create env file
         shell: bash
         run: |
