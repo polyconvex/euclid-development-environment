@@ -19,7 +19,9 @@ jobs:
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
- 
+
+          source "$HOME/.cargo/env"
+  
           echo "Installing ARGC"
           cargo install argc
           echo "ARGC Installed"
