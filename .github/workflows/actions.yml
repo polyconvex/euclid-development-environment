@@ -30,15 +30,16 @@ jobs:
           echo "Installing Scala"
           curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
           echo "Scala Installed"
-          
-          source ~/.profile
- 
+
+      - name: Run Hydra
+        shell: wsl-bash_Ubuntu-20.04 {0}
+        run: |
           scripts/hydra install
- 
+
           scripts/hydra build
- 
+
           scripts/hydra start_genesis
- 
+
           scripts/hydra stop
- 
+
           scripts/hydra destroy
