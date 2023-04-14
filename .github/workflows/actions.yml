@@ -23,8 +23,6 @@ jobs:
           cargo install argc
           echo "ARGC Installed"
 
-          source ~/.profile
-
           echo "Installing Giter"
           cs install giter8
           echo "Gitter Installed"
