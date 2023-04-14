@@ -34,12 +34,12 @@ jobs:
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
-          scripts/hydra install
+          sed -i 's/\r//' scripts/hydra install
 
-          scripts/hydra build
+          sed -i 's/\r//' scripts/hydra build
 
-          scripts/hydra start_genesis
+          sed -i 's/\r//' scripts/hydra start_genesis
 
-          scripts/hydra stop
+          sed -i 's/\r//' scripts/hydra stop
 
-          scripts/hydra destroy
+          sed -i 's/\r//' scripts/hydra destroy
