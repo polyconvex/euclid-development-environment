@@ -6,9 +6,21 @@ jobs:
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
+      - name: coursier-setup-action
+        uses: coursier/setup-action@v1.3.0
       - name: Setup WSL
-        uses: Vampire/setup-wsl@v2.0.1
-      - shell: wsl-bash {0}
+        uses: Vampire/setup-wsl@v2
+        with:
+          additional-packages: curl
+          distribution: Ubuntu-20.04
+      - name: Setup Gitter 8
+        shell: wsl-bash {0}
+        run: |
+          echo "Installing Giter"
+          cs install giter8
+          echo "Gitter Installed"
+      - name: Run Steps
+        shell: wsl-bash {0}
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
           apt-get install curl
@@ -25,10 +37,6 @@ jobs:
           echo "Scala Installed"
  
           source ~/.profile
- 
-          echo "Installing Giter"
-          cs install giter8
-          echo "Gitter Installed"
  
           scripts/hydra install
  
