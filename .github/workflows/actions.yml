@@ -30,7 +30,9 @@ jobs:
           echo "Installing Scala"
           curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
           echo "Scala Installed"
-        
+          
+          source ~/.profile
+ 
           scripts/hydra install
  
           scripts/hydra build
