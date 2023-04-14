@@ -27,9 +27,9 @@ jobs:
           echo "Installing Giter"
           cs install giter8
           echo "Gitter Installed"
-
-          source ~/.bashrc
-          
+      - name: Run Hydra
+        shell: bash
+        run: |
           scripts/hydra install
 
           scripts/hydra build
