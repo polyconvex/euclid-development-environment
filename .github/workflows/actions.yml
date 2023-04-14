@@ -15,6 +15,7 @@ jobs:
       - name: Run steps
         shell: bash
         run: |
+          source ~/.bashrc
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
@@ -27,6 +28,8 @@ jobs:
           cs install giter8
           echo "Gitter Installed"
 
+          source ~/.bashrc
+          
           scripts/hydra install
 
           scripts/hydra build
