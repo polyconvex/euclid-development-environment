@@ -15,8 +15,8 @@ jobs:
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
-          sudo apt-get update
-          sudo apt install build-essential
+          sudo apt-get update -y
+          sudo apt install build-essential -y
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
