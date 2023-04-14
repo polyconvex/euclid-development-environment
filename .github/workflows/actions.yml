@@ -11,7 +11,7 @@ jobs:
       - shell: wsl-bash {0}
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
-          apt install curl
+          apt-get install curl
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
