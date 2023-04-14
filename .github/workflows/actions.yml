@@ -15,7 +15,6 @@ jobs:
       - name: Run steps
         shell: bash
         run: |
-          source ~/.bashrc
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
