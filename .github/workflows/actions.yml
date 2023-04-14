@@ -24,12 +24,12 @@ jobs:
           echo "ARGC Installed"
 
           echo "Installing Giter"
-          curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > ~/bin/g8
-          chmod +x ~/bin/g8
+          cs install giter8
           echo "Gitter Installed"
       - name: Run Hydra
         shell: bash
         run: |
+          giter8 t
           scripts/hydra install
 
           scripts/hydra build
