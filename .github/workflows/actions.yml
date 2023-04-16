@@ -1,7 +1,6 @@
 on: push
 
 jobs:
-
   windows-tests:
     runs-on: windows-2019
     steps:
@@ -16,6 +15,7 @@ jobs:
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
           apt-get update -y
+          apt-get install dos2unix
           apt install build-essential -y
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
@@ -34,12 +34,12 @@ jobs:
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
-          sed -i 's/\r//' scripts/hydra install
+          dos2unix scripts/hydra install
 
-          sed -i 's/\r//' scripts/hydra build
+          dos2unix scripts/hydra build
 
-          sed -i 's/\r//' scripts/hydra start_genesis
+          dos2unix scripts/hydra start_genesis
 
-          sed -i 's/\r//' scripts/hydra stop
+          dos2unix scripts/hydra stop
 
-          sed -i 's/\r//' scripts/hydra destroy
+          dos2unix scripts/hydra destroy
