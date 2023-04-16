@@ -34,12 +34,14 @@ jobs:
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
-          dos2unix scripts/hydra install
+          dos2unix scripts/hydra
+          
+          scripts/hydra install
 
-          dos2unix scripts/hydra build
+          scripts/hydra build
 
-          dos2unix scripts/hydra start_genesis
+          scripts/hydra start_genesis
 
-          dos2unix scripts/hydra stop
+          scripts/hydra stop
 
-          dos2unix scripts/hydra destroy
+          scripts/hydra destroy
