@@ -17,10 +17,6 @@ jobs:
           apt-get update -y
           apt-get install dos2unix
           apt install build-essential -y
- 
-          echo "Installing Scala"
-          curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
-          echo "Scala Installed"
 
       - name: Convert files dos2unix
         shell: wsl-bash_Ubuntu-20.04 {0}
@@ -40,6 +36,10 @@ jobs:
           echo "Installing ARGC"
           cargo install argc
           echo "ARGC Installed"
+          
+          echo "Installing Scala"
+          curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
+          echo "Scala Installed"
           
           scripts/hydra install
 
