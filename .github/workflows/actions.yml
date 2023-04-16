@@ -17,15 +17,6 @@ jobs:
           apt-get update -y
           apt-get install dos2unix
           apt install build-essential -y
-          echo "Installing CARGO"
-          curl https://sh.rustup.rs -sSf | sh -s -- -y 
-          echo "Cargo Installed"
-
-          source "$HOME/.cargo/env"
-  
-          echo "Installing ARGC"
-          cargo install argc
-          echo "ARGC Installed"
  
           echo "Installing Scala"
           curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
@@ -40,6 +31,16 @@ jobs:
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
+          echo "Installing CARGO"
+          curl https://sh.rustup.rs -sSf | sh -s -- -y 
+          echo "Cargo Installed"
+
+          source "$HOME/.cargo/env"
+          
+          echo "Installing ARGC"
+          cargo install argc
+          echo "ARGC Installed"
+          
           scripts/hydra install
 
           scripts/hydra build
