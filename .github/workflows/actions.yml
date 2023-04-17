@@ -12,11 +12,10 @@ jobs:
             curl
             docker
           distribution: Ubuntu-20.04
-      - uses: Vampire/setup-wsl@v2
-        with:
-          wsl-shell-command: bash -c "cd && bash -euo pipefail '{0}'"
       - name: Run Steps
         shell: wsl-bash_Ubuntu-20.04 {0}
+        with:
+          wsl-shell-command: bash -c "cd && bash -euo pipefail '{0}'"
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
           apt-get update -y
@@ -25,12 +24,16 @@ jobs:
 
       - name: Convert files dos2unix
         shell: wsl-bash_Ubuntu-20.04 {0}
+        with:
+          wsl-shell-command: bash -c "cd && bash -euo pipefail '{0}'"
         run: |
           dos2unix scripts/hydra
           dos2unix .env
 
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
+        with:
+          wsl-shell-command: bash -c "cd && bash -euo pipefail '{0}'"
         run: |
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
