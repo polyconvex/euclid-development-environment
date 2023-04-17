@@ -26,7 +26,6 @@ jobs:
       - name: Convert files dos2unix
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
-          ls
           dos2unix scripts/hydra
           dos2unix .env
 
@@ -52,9 +51,14 @@ jobs:
           curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
           chmod +x g8
 
-          source ~/.profile
-  
+          alias g8='./g8'
+          
           echo $HOME tttt
+          
+          command -v g8
+          command -v ./g8
+          
+          g8
           
           scripts/hydra install
 
