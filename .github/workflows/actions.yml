@@ -8,10 +8,15 @@ jobs:
       - name: Setup WSL
         uses: Vampire/setup-wsl@v2
         with:
-          additional-packages: curl docker
+          additional-packages:
+            curl
+            docker
           distribution: Ubuntu-20.04
+      - uses: Vampire/setup-wsl@v2
+        with:
+          wsl-shell-command: bash -c "bash"
       - name: Run Steps
-        shell: wsl-bash_Ubuntu-20.04 {0}
+        shell: wsl-bash {0}
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
           apt-get update -y
@@ -19,13 +24,13 @@ jobs:
           apt install build-essential -y
 
       - name: Convert files dos2unix
-        shell: wsl-bash_Ubuntu-20.04 {0}
+        shell: wsl-bash {0}
         run: |
           dos2unix scripts/hydra
           dos2unix .env
 
       - name: Run Hydra
-        shell: wsl-bash_Ubuntu-20.04 {0}
+        shell: wsl-bash {0}
         run: |
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
@@ -45,9 +50,24 @@ jobs:
           echo "Installing giter8"
           curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
           chmod +x g8
-          echo "Installed"
+
+          source ~/.profile
+  
+          echo $HOME tttt
           
-          alias g8='./g8'
+          scripts/hydra install
+
+          scripts/hydra build
+
+          scripts/hydra start_genesis
+
+          scripts/hydra stop
+
+          scripts/hydra destroy
+
+      - name: Run Hydra 2
+        shell: wsl-bash_Ubuntu-20.04 {0}
+        run: |
           scripts/hydra install
 
           scripts/hydra build
