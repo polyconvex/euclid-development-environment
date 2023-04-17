@@ -20,7 +20,7 @@ jobs:
           
           ls
           
-          export g8=./g8
+          export PATH=$PATH:/g8
           
           g8
   
