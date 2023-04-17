@@ -19,8 +19,7 @@ jobs:
           echo "Installed"
           
           ls
-          
-          export PATH=$PATH:/g8
+          alias g8='./g8'
           
           g8
   
