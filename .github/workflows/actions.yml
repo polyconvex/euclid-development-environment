@@ -20,7 +20,7 @@ jobs:
           
           ls
           
-          ./g8
+          export g8=./g8
           
           g8
   
