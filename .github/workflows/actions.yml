@@ -47,6 +47,7 @@ jobs:
           chmod +x g8
           echo "Installed"
           
+          alias g8='./g8'
           scripts/hydra install
 
           scripts/hydra build
