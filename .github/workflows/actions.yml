@@ -43,11 +43,12 @@ jobs:
           echo "Scala Installed"
           
           echo "Installing giter8"
-          curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
-          chmod +x g8 
+          curl curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > ~/bin/g8
+          chmod +x ~/bin/g8
           echo "Installed"
           
-          export g8=./g8
+          ls
+          g8
           
           scripts/hydra install
 
