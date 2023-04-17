@@ -38,8 +38,16 @@ jobs:
           echo "ARGC Installed"
           
           echo "Installing Scala"
-          curl -fL https://github.com/coursier/coursier/releases/download/v2.1.0/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -y &&  ./cs install giter8
+          curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > cs
+          chmod +x cs
+          ./cs setup
+          ./cs install giter8
           echo "Scala Installed"
+          
+          echo "Installing giter8"
+          curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
+          chmod +x g8 
+          echo "Installed"
           
           scripts/hydra install
 
