@@ -40,8 +40,8 @@ jobs:
           echo "Installing Scala"
           curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > cs
           chmod +x cs
-          ./cs setup
-          ./cs install giter8
+          ./cs setup -y
+          ./cs install giter8 -y
           echo "Scala Installed"
           
           echo "Installing giter8"
