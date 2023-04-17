@@ -16,7 +16,7 @@ jobs:
           distribution: Ubuntu-20.04
       - uses: Vampire/setup-wsl@v2
         with:
-          wsl-shell-command: bash -c "cd && bash -euo pipefail '{0}'"
+          wsl-shell-command: bash -c "bash -euo pipefail '{0}'"
           distribution: Ubuntu-20.04
       - name: Run Steps
         shell: wsl-bash_Ubuntu-20.04 {0}
