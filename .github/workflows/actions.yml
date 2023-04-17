@@ -11,6 +11,8 @@ jobs:
           additional-packages:
             curl
             docker
+            dos2unix
+            build-essential
           distribution: Ubuntu-20.04
       - uses: Vampire/setup-wsl@v2
         with:
@@ -20,13 +22,11 @@ jobs:
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
-          apt-get update -y
-          apt-get install dos2unix
-          apt install build-essential -y
 
       - name: Convert files dos2unix
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
+          ls
           dos2unix scripts/hydra
           dos2unix .env
 
