@@ -48,7 +48,10 @@ jobs:
           echo "Installed"
           
           ls
+          
           g8
+          
+          ./g8
           
           scripts/hydra install
 
