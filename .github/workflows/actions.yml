@@ -18,10 +18,6 @@ jobs:
         with:
           wsl-shell-command: bash -c "bash -euo pipefail '{0}'"
           distribution: Ubuntu-20.04
-      - name: Run Steps
-        shell: wsl-bash_Ubuntu-20.04 {0}
-        run: |
-          echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
 
       - name: Convert files dos2unix
         shell: wsl-bash_Ubuntu-20.04 {0}
@@ -32,6 +28,10 @@ jobs:
       - name: Run Hydra
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
+          echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
+          
+          source .env
+          
           echo "Installing CARGO"
           curl https://sh.rustup.rs -sSf | sh -s -- -y 
           echo "Cargo Installed"
