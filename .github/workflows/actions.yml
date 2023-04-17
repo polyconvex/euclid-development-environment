@@ -51,6 +51,7 @@ jobs:
           curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
           chmod +x g8
           
+          mv g8 source/project
           cd source/project
           ./g8 Constellation-Labs/currency --tag $DEFAULT_TESSELLATION_PROJECT_VERSION --name="$PROJECT_NAME" --tessellation_version="$DEFAULT_TESSELLATION_PROJECT_VERSION_TEMPLATE"
           cd ../..  
