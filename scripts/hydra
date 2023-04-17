@@ -67,7 +67,7 @@ create_template() {
   else
     echo "Generating template $1 ..."
     echo "Tessellation version: $DEFAULT_TESSELLATION_PROJECT_VERSION"
-    g8 Constellation-Labs/currency --tag $DEFAULT_TESSELLATION_PROJECT_VERSION --name="$2" --tessellation_version="$DEFAULT_TESSELLATION_PROJECT_VERSION_TEMPLATE"
+    ./g8 Constellation-Labs/currency --tag $DEFAULT_TESSELLATION_PROJECT_VERSION --name="$2" --tessellation_version="$DEFAULT_TESSELLATION_PROJECT_VERSION_TEMPLATE"
 
   fi
   cd ../../

@@ -13,16 +13,6 @@ jobs:
       - name: Run Steps
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
-          echo "Installing giter8"
-          curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
-          chmod +x g8
-          echo "Installed"
-          
-          ls
-          alias g8='./g8'
-          
-          g8
-  
           echo "export GITHUB_TOKEN=${{ secrets.TOKEN }}" >> .env
           apt-get update -y
           apt-get install dos2unix
@@ -53,15 +43,9 @@ jobs:
           echo "Scala Installed"
           
           echo "Installing giter8"
-          curl curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > ~/bin/g8
-          chmod +x ~/bin/g8
+          curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > g8
+          chmod +x g8
           echo "Installed"
-          
-          ls
-          
-          g8
-          
-          ./g8
           
           scripts/hydra install
 
