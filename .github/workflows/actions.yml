@@ -13,6 +13,7 @@ jobs:
             docker
             dos2unix
             build-essential
+            openjdk-11-jdk
           distribution: Ubuntu-20.04
       - uses: Vampire/setup-wsl@v2
         with:
