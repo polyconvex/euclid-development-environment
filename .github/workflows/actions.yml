@@ -14,6 +14,7 @@ jobs:
         shell: wsl-bash_Ubuntu-20.04 {0}
         run: |
           echo "Installing giter8"
+          sudo mkdir ~/bin/g8
           curl https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-bootstrap_2.12/0.14.0/giter8-bootstrap_2.12-0.14.0.sh > ~/bin/g8
           chmod +x ~/bin/g8
           echo "Installed"
